@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
-  View
+  View,
+  Image
 } from 'react-native';
 
 
-const ProductListItem = ({ title, composer }) => (
+const ProductListItem = ({ title, composer, coverImage }) => (
   <View>
+    <Image source={{uri: `https://store.tido-music.com${coverImage.url}`}}
+      style={{width: 50, height: 50}}
+    />
     <Text>{title}</Text>
     <Text>{composer}</Text>
   </View>
