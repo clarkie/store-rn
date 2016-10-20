@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import ProductList from './components/ProductList';
+import Banner from './components/Banner';
 
 export default class TidoStore extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ export default class TidoStore extends Component {
   render() {
     return (
       <View>
+        <Banner />
         <ProductList products={this.state.volumes} />
       </View>
     );
