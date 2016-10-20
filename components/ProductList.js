@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  ScrollView,
   Image
 } from 'react-native';
 
@@ -12,8 +13,8 @@ const ProductListItem = ({ title, composer, coverImage }) => (
     <Image source={{uri: `https://store.tido-music.com${coverImage.url}`}}
       style={{width: 50, height: 50}}
     />
-    <Text>{title}</Text>
-    <Text>{composer}</Text>
+    <Text style={styles.listItem}>{title}</Text>
+    <Text style={styles.listItem}>{composer}</Text>
   </View>
 );
 
@@ -24,10 +25,20 @@ const ProductList = ({ products }) => {
   }
 
   return (
-    <View>
+    <ScrollView style={styles.scrollView}>
       {products.map(product => (<ProductListItem key={product.id} {...product} />))}
-    </View>
+    </ScrollView>
   )
 }
 
 export default ProductList;
+
+const styles = StyleSheet.create({
+  scrollView: {
+    backgroundColor: '#4d237a',
+    height: 500,
+  },
+  listItem: {
+    color: 'white'
+  }
+});
