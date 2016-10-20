@@ -1,24 +1,11 @@
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
   View,
-  ListView,
   AlertIOS
 } from 'react-native';
 import axios from 'axios';
-
-const VolumeList = ({ volumes }) => volumes.map((volume) => (<Volume {...volume} />));
-
-const Volume = ({ title, composer }) => (
-  <View>
-    <Text>{title}</Text>
-    <Text>{composer}</Text>
-  </View>
-)
-
+import ProductList from './components/ProductList';
 
 export default class TidoStore extends Component {
   constructor(props) {
@@ -41,7 +28,7 @@ export default class TidoStore extends Component {
   render() {
     return (
       <View>
-        {this.state.volumes.map((v) => <Volume key={v.id} {...v} />)}
+        <ProductList products={this.state.volumes} />
       </View>
     );
   }
